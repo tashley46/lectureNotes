@@ -1,3 +1,4 @@
+
 Homework 1 due tonight
     last problem (Deer/Fox/Bunny) suggestions
 
@@ -9,7 +10,7 @@ I'll post Homework 2 after class (due Tues Sep 9)
 /////////////////////
 
 Today:
-
+    
 - review implies operator
 - evaluating logical statements
 - compound truth tables
@@ -34,10 +35,10 @@ When is this true? When is this false?
 
 p q  #  p → q
 --------------
-T T  #    
-T F  #    
-F T  #    
-F F  #    
+T T  #    T
+T F  #    F 
+F T  #    T
+F F  #    T
 
 //////////////////////////////////////
 
@@ -45,10 +46,10 @@ Evaluating logical statements.
 
 Basic operations:
 
-∧ - 
-∨ - 
-¬ - 
-→ - 
+∧ - and
+∨ - Or
+¬ - not
+→ - implies
 
 ////////////////////////////////////////
 
@@ -56,17 +57,24 @@ Consider ¬p ∨ q ∧ r.
 
 --> what operation do we do first?
 
-
+!p, q and r,
 
 Order of operations
 
 In math? 
 
-
+()
+exp
+mult/div
+add/sub
 
 For logic statements (∧ ∨ ¬ →)?
 
-
+()
+not
+and
+or
+implies
 
 
 
@@ -80,7 +88,7 @@ Given this statement:
 Add () to show the order of operations.
 
 
-
+((!p) or (q and r))
 
 
 Evaluate the above statement using these
@@ -90,6 +98,12 @@ p is T
 q is F
 r is F
 
+((!p) or (q and r))
+((!T) or (F and F))
+((F) or (F))
+F
+
+output is false
 
 
 
@@ -98,16 +112,17 @@ r is F
 
 Order of operations
     ¬ evaluates right to left
-        ¬¬p is equivalent to....
+        ¬(¬p) is equivalent to....
 
+p
 
     ∧ and ∨ evaluate left to right
-        p ∧ q ∧ r is equivalent to....
-        p ∨ q ∨ r is equivalent to....
+        p ∧ q ∧ r is equivalent to.... ((p and q) and r)
+        p ∨ q ∨ r is equivalent to.... ((p or q) or r)
 
 
     → evaluates right to left
-        p → q → r is equivalent to....
+        p → q → r is equivalent to.... (p implies (q implies r))
 
 
 
@@ -118,14 +133,14 @@ Order of operations
 Top-level operator (what happens LAST?)
 
 
-¬p ∨ q ∧ r
+(((¬p) ∨ q) ∧ r)
 
 
-top-level? 
+top-level? the OR
+ 
+How is this similar to a circuit? it's the last gate
 
-
-How is this similar to a circuit? 
-
+top-level operator is the output of the entire statement
 
 
 ///////////////////////////////
@@ -134,8 +149,10 @@ p ∧ q ∨ r ∧ p
 
 rewrite with ():
 
+(p ∧ q) ∨ (r ∧ p)
 
-top-level operator? 
+
+top-level operator? the OR
 
 
 
@@ -144,9 +161,10 @@ top-level operator?
 p ∧ q ∧ r ∧ s
 
 rewrite with ():
+((p ∧ q) ∧ r) ∧ s
 
 
-top-level operator? AND 
+top-level operator? AND s
 
 
 ////////////////////////////////////////////////////
@@ -162,7 +180,7 @@ Listing all truth assignments for a logical statement.
 If we have 2 variables, how many possible truth assignments?
 
     p, q
-
+ 4
 
 
 
@@ -171,13 +189,13 @@ If we have 3 variables, how many possible truth assignments?
 
     p, q, r
 
-
+8
 
 If we have n variables, how many possible truth assignments?
 
 
 
-
+2^n
 
 
 ////////////////////////////////////////////////////
@@ -190,20 +208,20 @@ Contingent, contradictory, tautology
 
 
 
-contingent: 
+contingent: sometimes true sometimes false - at least one truth assignment evaluates to true and at least one truth assignment evaluates to false
 
-    Example? 
-
-
-
-contradictory:
-
-    Example? 
+    Example? p ∨ q
 
 
-tautology:
 
-    Example? 
+contradictory: always false - every truth assignment evaluates to false
+
+    Example? ¬p ∧ p 
+
+
+tautology: always true - every truth assignment evaluates to true
+
+    Example? ¬p ∨ p
     
 
 ///////////////////////////////////////////
@@ -218,32 +236,44 @@ Compound truth tables.
 Write a truth table for:
 
 (p ∧ r) → (r ∨ ¬q)
+                   *
+------------------------------
+p q r #    (p ∧ r) → (r ∨ ¬q)
+
+T T T #
+T T F #
+T F T #
+T F F #
+F T T #
+F T F #
+F F T #
+F F F #
 
 
 -----------------------------
 p q r  #  (p ∧ r) → (r ∨ ¬q)
 -----------------------------
-T T T #      
-T T F #      
-T F T #      
-T F F #     
-F T T #     
-F T F #    
-F F T #     
-F F F #     
+T T T #    T       T    T F
+T T F #    F       T    F F
+T F T #    T       T    T T
+T F F #    F       T    T T
+F T T #    F       T    T F
+F T F #    F       T    F F
+F F T #    F       T    T T
+F F F #    F       T    T T
 -----------------------------
 
 
 
 
 
---> top-level operator?
+--> top-level operator? implies
 
 --> need to evaluate statement on ALL possible truth assignments
 
 --> how many truth assignments are there?
 
---> how would we classify this truth table?
+--> how would we classify this truth table? tautology
 
 
 /////////////////////////////////////////
