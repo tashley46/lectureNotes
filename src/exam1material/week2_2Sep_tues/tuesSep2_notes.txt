@@ -346,28 +346,24 @@ Propositional logic.
 
 ////////////////////////////////////////
 
-Which ones are propositions? (true or false)
+Which ones are propositions?
 
-propositional atom: as simple of a proposition as possible
-    (doesn't contain operators)
-
-
-Today is Thursday. yes 
+Today is Thursday.
 
 
-What time is it? no
+What time is it?
 
 
-x == 2 yes
+x == 2
 
 
-Pigs can fly. yes
+Pigs can fly.
 
 
-Drive carefully. no
+Drive carefully.
 
 
-y <= 4 yes
+y <= 4
 
 
 
@@ -386,21 +382,21 @@ Suppose we have these propositional atoms:
 
 How would we express these as English sentences?
 
-    ¬p: It is not below freezing
+    ¬p:
 
 
-    p ∧ q: It is below freezing and it's snowing
+    p ∧ q:
 
 
-    p → q : If it's below freezing then it's snowing
+    p → q :
 
 
-    ¬p → ¬q: If it's not below freezing then it's not snowing
+    ¬p → ¬q:
 
 
-    r ∨ s: (y <= 4 || x == 2)
+    r ∨ s:
 
-    ¬r: y > 4
+    ¬r:
 
 ////////////////////////
 
