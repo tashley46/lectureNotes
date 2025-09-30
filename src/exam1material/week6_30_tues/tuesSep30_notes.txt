@@ -178,19 +178,19 @@ A set is an unordered collection of elements
 
 Example: A = {1,4,7,11,20}
 
-    1 ? 
-    2 ?
+    1 exists
+    2 doesnt exist
 
 
 
 - Common sets in math:
 
-    ℕ: 
-    ℤ: 
-    ℚ: 
-    ℝ: 
-    ℂ: 
-    ∅: 
+    ℕ:  natural nums (1,2,3,...)
+    ℤ: all ints (-1,0,1,2)
+    ℚ: rational nums  (p/q) where p and q exist in z and q != 0
+    ℝ: real numbers (nums with decimals)
+    ℂ: complex numbers
+    ∅: empty set
 
 ℕ ⊂ ℤ ⊂ ℚ ⊂ ℝ ⊂ ℂ
 
@@ -206,26 +206,28 @@ Set builder notation.
 
 {x: x ∈ ℕ, 5 ≤ x ≤ 10}
 
+{5,6,7,8,9,10}
+
 
 
 {k : k is a letter in "abracadabra"}
 
-
+{a,b,c,d,r}
 
 
 {x : x = 2k,  k ∈ ℕ}
 
-
+{2,4,6,8,10,..}
 
 
 {n : n = k^2, k ∈ Z}
 
-
+{1,4,9,16,25,36,...}
 
 
 {n : n = 3a + 1, a ∈ ℕ, 1 ≤ a ≤ 4}
 
-
+{4,7,10,13}
 
 //////////////////////////////////////
 
@@ -233,6 +235,8 @@ Describe these sets in set builder notation
 
 
 {5,10,15}
+
+{n : n = 5a, a ∈ ℕ, 1 ≤ a ≤ 3}
 
 
 
