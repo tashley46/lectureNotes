@@ -236,7 +236,7 @@ Describe these sets in set builder notation
 
 {5,10,15}
 
-{n : n = 5a, a ∈ ℕ, 1 ≤ a ≤ 3}
+{n : n = 5a, a ∈ ℕ, 1 ≤ a ≤ 3} 
 
 
 
