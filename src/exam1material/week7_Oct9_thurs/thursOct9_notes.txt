@@ -30,10 +30,29 @@ What does that tell us about A and B?
 7 (a). If A ⋃ C = B ⋃ C, must A = B?
 
 
+Counter-example:
+A {4}
+B {}
+C {4}
 
+{4} ⋃ {4} = {} ⋃ {4} true
 
+{4} = {} false
+
+the if is true yet the conclusion is false
 
 7 (b). If A ⋂ C = B ⋂ C, must A = B?
+
+Counter-example:
+
+- A ⋂ C = B ⋂ C needs to be true
+- A = B need to be false
+
+A {1}
+B {2}
+C {3}
+
+all intersections are the empty set, but A doesn't equal B
 
 
 ////////////////////
@@ -66,7 +85,7 @@ Examples -- are the following arguments valid?
 Premises: ∀ x (P(x) → Q(x)), ∃ x P(x)
 Conclusion: ∃ x Q(x)
 
-Valid or not? 
+Valid or not? Valid
 
 
 ///
@@ -74,13 +93,13 @@ Valid or not?
 Premises: ∀ x P(x) : everyone in my domain is P-ish
 Conclusion: ∃ x P(x): there is someone in domain who is P-ish
 
-Valid or not? 
+Valid or not? Not valid - empty domain
 
 /////////////////////////////////
 
-soundness ?
+soundness ? all arguments proved with deduction were actualy true
 
-completeness ?
+completeness ? all true arguements can be proved with deduction
 
 /////////////////////////////////
 
@@ -113,7 +132,7 @@ In Logika, ∃ x P(x) is written as:
 
 
 
---> what is "T"?
+--> what is "T"? My domain
 
 
 Settings->Command Palette->Tasks (run task)->Sireum slang template->
@@ -220,15 +239,17 @@ First: consider these two statements:
 are they equivalent?
     ∀ x (P(x) ⋀ Q(x))  - translation?
 
-
+everyone is both P and Q
 
     (∀ x P(x)) ⋀ (∀ x Q(x)) - translation?
 
-
+Everyone is P and everyone is Q
 
 
 how would we defend our position? 
+two proofs proving eachother
 
+1st one - pick a random person in the domain, AndE proves they are P, and then another AndE proves they are Q
 
 
 //////////////////////////////////
