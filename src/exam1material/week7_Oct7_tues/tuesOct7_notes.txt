@@ -29,8 +29,8 @@ Statements:
 
 HasChocolate(PayDay) V ContainsPeanuts(KitKat)
 
-    translation? 
-    true or false?
+    translation? Pay Day has chocolate or KitKats have peanuts
+    true or false? False
 
 
 ///
@@ -38,8 +38,8 @@ Domain: Snickers, Kit Kat, Skittles, Pay Day, Starburst
 
 ¬(∀ x (HasChocolate(x) → ContainsPeanuts(x)))
 
-    translation? 
-    true or false? 
+    translation? Not all candy with chocolate also contains peanuts
+    true or false? True - KitKats
 
 
 
@@ -48,8 +48,8 @@ Domain: Snickers, Kit Kat, Skittles, Pay Day, Starburst
 
 ∀ x (¬ContainsPeanuts(x))
 
-    translation? 
-    true or false? 
+    translation? All candy doesn't have peanuts
+    true or false? false - PayDay & Snickers
 
 
 ///
@@ -57,24 +57,25 @@ Domain: Snickers, Kit Kat, Skittles, Pay Day, Starburst
 
 ¬(∃ x IsBrown(x))
 
-    translation? 
-    true or false? 
+    translation? There isn't a candy that is brown
+    true or false? False - KitKat
 
 ///
 Domain: Snickers, Kit Kat, Skittles, Pay Day, Starburst
 
 ∃ x ¬IsBrown(x)
 
-    translation? 
-    true or false? 
+    translation? There is a candy that isn't brown
+    true or false? true - startburst/skittles
 
 ///
 Domain: Snickers, Kit Kat, Skittles, Pay Day, Starburst
 
 ∃ x (HasChocolate(x) → ContainsPeanuts(x))
 
-    translation?
-    true or false? 
+
+    translation? There is a candy and if that candy has chocolate then it contains peanuts
+    true or false? true (snickers has chcoclate and peanutes and skiitles/starburts dont have chocolate)
 
 
 
@@ -82,7 +83,7 @@ Domain: Snickers, Kit Kat, Skittles, Pay Day, Starburst
 
 For all: usually connect with...→
 
-
+and
 
 There exists: usually connect with...⋀
 
@@ -93,28 +94,28 @@ There exists: usually connect with...⋀
 Evaluating predicate logic statements
 
 1) ∀ x P(x)
-    true when: 
-    false when: 
+    true when: P(k) is true for every k in our domain
+    false when: P(k) has at least one false in the domain
 
 2) ∃ x P(x)
-    true when: 
-    false when: 
+    true when: P(k) has at least one value of k that evaluates to true
+    false when: P(k) is false for every k
 
 3) ¬(∀ x P(x))
-    true when: 
-    false when: 
+    true when: At least one k where P(k) is false
+    false when: Every k for P(k) evaluates to true
 
 4) ¬(∃ x P(x))
-    true when: 
-    false when: 
+    true when: Every k in P(k) evaluates to false
+    false when: There'sat least one k in P(k) that evaluates to true
 
 5) ∀ x ¬P(x)
-    true when: 
-    false when: 
+    true when: Every k in P(k) evaluates to false
+    false when: There is at least one k in P(k) that evaluates to true
 
 6) ∃ x ¬P(x)
-    true when: 
-    false when: 
+    true when: There is at least one k in P(k) that evaluatesto False 
+    false when: all k in p(k) are true
 
 
 /////////////////
@@ -128,20 +129,29 @@ What do these mean in English? Are they true?
 ∀ n ∃ m (n^2 < m)
 
 
+The square of every integer is less than some other integer
 
+true
 
 
 ∀ x ∃ y (x == y^2)
 
+All integers are perfect squares
+
+false - 3
 
 
 ∀ n ∃ m (n^2 == m)
 
+The square of all integers is all an integer
 
+true 
 
 ∃ m ∀ n (n^2 == m)
    
+There is one number that equals the square of all other integers
 
+false
 
 /////////////////////////
 
@@ -155,18 +165,20 @@ Write the following in predicate logic (Domain: ℤ):
 
 The sum of two negative integers is negative
 
+2 quantifiers
 
-
-
+∀ n ∀ m (n < 0 & m < 0 __>: n + m < 0)
 
 
 
 The difference of two positive integers is
 not necessarily positive
 
+∃ n ∃ m (n > 0 & m > 0 & (n-m <= 0))
+                or
+!(∀ n ∀ m (n > 0 & m > 0 __>: n-m > 0))
 
-
-
+true - there are some pos int that evaluate to a negative when subtracted (m = 1 n = 100)
 
 
 /////////////////////////
@@ -206,9 +218,9 @@ suppose our domain is k1 through kn
 
 
 
-¬(∀ x P(x)) is equivalent to...
+¬(∀ x P(x)) is equivalent to... !(P(k1) | ... | P(kn))
 
-
+!P(k1) & ... & !P(kn)
 
 
 //////////////////////////////////////
@@ -222,9 +234,9 @@ Apply DeMorgan's laws: example
 or outside a statement with logical connectives
 
     Reminder:
-        p → q is equivalent to (OR statement): 
-        ¬(p ⋀ q) is equivalent to: 
-        ¬(p ⋁ q) is equivalent to: 
+        p → q is equivalent to (OR statement): !(!p | q)
+        ¬(p ⋀ q) is equivalent to: !p | !q
+        ¬(p ⋁ q) is equivalent to: !p & !q
 
 ///
 Domain: students
@@ -240,21 +252,23 @@ Domain: students
 
 All prize-winners were 5th graders
 
-Translation: 
+Translation: ∀ x (wonPrize(x) __>: in5th(x))
 
-Negation: 
+Negation: ∃ x (wonPrize(x) & !in5th(x))
 
-Translation of negation: 
+Translation of negation: There is a student that has won a prize and isn't in 5th grade
 
 ///
 
 A 5th grade prize winner isn't friends with anyone
 
-translation: 
+translation: ∃ x ∀ y(is5th & wonPrize(x) & !friendsWith(x, y))
 
-negate: 
+negate:  !(∃ x ∀ y(is5th(x) & wonPrize(x) & !friendsWith(x, y)))
+        ∀ x ∃ y (!(is5th(x) & wonPrize(x)) | friendsWith(x, y))
+        ∀ x ∃ y (is5th(x) & wonPrize(x) __>: friendsWith(x, y))
 
-translation of negation: 
+translation of negation: For all students, if they are in 5th grade and are prize winners then they have a friend 
 
 ////////////////////////////////////
 
